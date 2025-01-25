@@ -1314,9 +1314,9 @@
 
                         </p>
                     </div>
-                    <div class="certificate">
+<!--                     <div class="certificate">
                         <img src="certificate1.webp" alt="Certificate 1">
-                    </div>
+                    </div> -->
                 </div>
 
 
@@ -1342,9 +1342,9 @@
 
                         </p>
                     </div>
-                    <div class="certificate">
+<!--                     <div class="certificate">
                         <img src="certificate2.webp" alt="Certificate 3">
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="experience-item">
@@ -1363,9 +1363,9 @@
                             displayed.
                         </p>
                     </div>
-                    <div class="certificate">
+<!--                     <div class="certificate">
                         <img src="certificate3.webp" alt="Certificate 4">
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -1673,155 +1673,7 @@
         </style>
     </section>
 
-    <section id="gallery-section">
-        <h2 class="section-title">Gallery</h2>
-        <div class="gallery-image">
-
-            <div class="img-box">
-                <img src="https://picsum.photos/350/250?image=444" alt="Library" />
-                <div class="transparent-box">
-                    <div class="caption">
-                        <p>Library</p>
-                        <p class="opacity-low">Architect Design</p>
-                    </div>
-                </div>
-            </div>
-            <div class="img-box">
-                <img src="https://picsum.photos/350/250/?image=232" alt="Night Sky" />
-                <div class="transparent-box">
-                    <div class="caption">
-                        <p>Night Sky</p>
-                        <p class="opacity-low">Cinematic</p>
-                    </div>
-                </div>
-            </div>
-            <div class="img-box">
-                <img src="https://picsum.photos/350/250/?image=431" alt="Tea Talk" />
-                <div class="transparent-box">
-                    <div class="caption">
-                        <p>Tea Talk</p>
-                        <p class="opacity-low">Composite</p>
-                    </div>
-                </div>
-            </div>
-            <div class="img-box">
-                <img src="https://picsum.photos/350/250?image=474" alt="Road" />
-                <div class="transparent-box">
-                    <div class="caption">
-                        <p>Road</p>
-                        <p class="opacity-low">Landscape</p>
-                    </div>
-                </div>
-            </div>
-            <div class="img-box">
-                <img src="https://picsum.photos/350/250?image=344" alt="Sea" />
-                <div class="transparent-box">
-                    <div class="caption">
-                        <p>Sea</p>
-                        <p class="opacity-low">Cityscape</p>
-                    </div>
-                </div>
-            </div>
-            <div class="img-box">
-                <img src="https://picsum.photos/350/250?image=494" alt="Vintage" />
-                <div class="transparent-box">
-                    <div class="caption">
-                        <p>Vintage</p>
-                        <p class="opacity-low">Cinematic</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <style>
-            /* Resetting margins and padding */
-
-
-            /* Gallery container using CSS Grid */
-            .gallery-image {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                /* Two columns by default */
-                gap: 10px;
-                padding: 20px;
-            }
-
-            /* For desktop view: three columns */
-            @media (min-width: 768px) {
-                .gallery-image {
-                    grid-template-columns: repeat(3, 1fr);
-                    /* Three columns on larger screens */
-                }
-            }
-
-            /* Image box containing each image */
-            .img-box {
-                position: relative;
-                overflow: hidden;
-                border-radius: 8px;
-                transition: transform 0.3s ease;
-                background-color: #f0f0f0;
-                height: 150px;
-                /* Adjusted for proper fitting */
-            }
-
-            /* Styling for the images */
-            .gallery-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.4s ease;
-                border-radius: 8px;
-            }
-
-            /* Transparent overlay box */
-            .transparent-box {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0);
-                transition: background-color 0.3s ease;
-            }
-
-            /* Caption text */
-            .caption {
-                position: absolute;
-                bottom: 10px;
-                left: 20px;
-                opacity: 0;
-                transition: transform 0.3s ease, opacity 0.3s ease;
-                color: white;
-            }
-
-            /* Hover effect for images */
-            .img-box:hover img {
-                transform: scale(1.1);
-            }
-
-            /* Hover effect for transparent overlay */
-            .img-box:hover .transparent-box {
-                background-color: rgba(0, 0, 0, 0.5);
-            }
-
-            /* Hover effect for caption text */
-            .img-box:hover .caption {
-                transform: translateY(-20px);
-                opacity: 1.0;
-            }
-
-            /* Caption subtext */
-            .caption>p:nth-child(2) {
-                font-size: 0.8em;
-            }
-
-            /* Low opacity for subtext */
-            .opacity-low {
-                opacity: 0.7;
-            }
-        </style>
-    </section>
+    
 
     <section id="projects-section">
         <div class="projects-container">
