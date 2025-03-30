@@ -69,31 +69,46 @@
 </head>
 
 <body>
-    <header id="header">
+    <header id="header" class="header">
         <div class="container">
-            <h1 id="shiv">Shivam🕊️</h1>
-            <div class="menu-toggle" id="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="logo-container">
+                <h1 class="logo">Shivam🕊️</h1>
             </div>
-            <nav id="navbar">
-                <ul>
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about-me">About</a></li>
-                    <li><a href="#timeline-journey">Journey</a></li>
-                    <li><a href="#skills-section">Skills</a></li>
-                    <li><a href="#experience-section">Experience</a></li>
-                    <li><a href="#projects-section">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            
+            <!-- Navigation Menu -->
+            <nav id="navbar" class="navbar" aria-label="Main navigation">
+                <ul class="nav-list" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="#header" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#about-me" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#skills-section" class="nav-link" role="menuitem">Skills</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#projects-section" class="nav-link" role="menuitem">Projects</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+                    </li>
+                    <li class="nav-item cta" role="none">
+                        <a href="shivam_Kumar_webdev.pdf" class="nav-link cta-button" role="menuitem" download>Download Resume</a>
+                    </li>
                 </ul>
             </nav>
         </div>
 
         <style>
-            /* Header Styles */
-            #header {
-                /* Header & Navigation Styles */
+            
 .header {
     position: fixed;
     top: 0;
