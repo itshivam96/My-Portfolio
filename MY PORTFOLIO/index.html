@@ -295,12 +295,16 @@
         justify-content: center;
         transition: right 0.4s ease-in-out;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
     }
     
     .navbar.active {
         right: 0;
     }
-    
+    .hamburger {
+            display: block;
+            z-index: 1001;
+        }
     .nav-list {
         flex-direction: column;
         align-items: center;
@@ -348,12 +352,17 @@
         </style>
 
         <script>
-            // JavaScript for menu toggle functionality
-            document.getElementById('hamburger').addEventListener('click', function () {
-                const navbar = document.getElementById('navbar');
-                navbar.classList.toggle('open');
-            });
-
+            document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.getElementById('hamburger');
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        // Toggle mobile menu
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navbar.classList.toggle('active');
+            this.setAttribute('aria-expanded', this.classList.contains('active'));
+        });
             // Add a shadow effect when scrolling
             window.onscroll = function () {
                 const header = document.getElementById('header');
@@ -365,6 +374,37 @@
                     header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)'; /* Subtle shadow */
                 }
             }
+                // Close menu when clicking a link (mobile only)
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    hamburger.classList.remove('active');
+                    navbar.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+        
+        // Close menu when clicking outside (mobile only)
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 && 
+                navbar.classList.contains('active') && 
+                !navbar.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navbar.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove('active');
+                navbar.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
         </script>
     </header>
 
