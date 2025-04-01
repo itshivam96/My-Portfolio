@@ -285,36 +285,36 @@
     
     .navbar {
         position: fixed;
-        top: 0;
+        top: 70px;
         right: -100%;
         width: 80%;
         max-width: 300px;
-        height: 100vh;
+        height: calc(100vh - 70px);
         background-color: #1b2533;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         transition: right 0.4s ease-in-out;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
+        z-index: 999;
+        padding-top: 20px;
     }
     
     .navbar.active {
         right: 0;
     }
-    .hamburger {
-            display: block;
-            z-index: 1001;
-        }
+    
     .nav-list {
         flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        padding: 2rem;
+                align-items: flex-start;
+                gap: 1.5rem;
+                padding: 0 2rem;
+                width: 100%;
     }
     
     .nav-link {
         font-size: 1.2rem;
         padding: 0.5rem 0;
+        width: 100%;
     }
     
     .nav-link::after {
@@ -325,6 +325,8 @@
     .cta-button {
         margin-top: 1rem;
         padding: 0.75rem 1.5rem;
+        width: 100%;
+                text-align: center;
     }
 }
 
@@ -352,60 +354,61 @@
         </style>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-        const hamburger = document.getElementById('hamburger');
-        const navbar = document.getElementById('navbar');
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        // Toggle mobile menu
-        hamburger.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navbar.classList.toggle('active');
-            this.setAttribute('aria-expanded', this.classList.contains('active'));
-        });
-            // Add a shadow effect when scrolling
-            window.onscroll = function () {
-                const header = document.getElementById('header');
-                if (window.scrollY > 50) {
-                    header.style.backgroundColor = '#101d29'; /* Darker background on scroll */
-                    header.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)'; /* Add shadow on scroll */
-                } else {
-                    header.style.backgroundColor = '#152738'; /* Original background */
-                    header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)'; /* Subtle shadow */
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const header = document.querySelector('.header');
+            
+            // Toggle mobile menu
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                navbar.classList.toggle('active');
+                this.setAttribute('aria-expanded', this.classList.contains('active'));
+            });
+            
+            // Close menu when clicking a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        hamburger.classList.remove('active');
+                        navbar.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768 && 
+                    !navbar.contains(e.target) && 
+                    !hamburger.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navbar.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
                 }
-            }
-                // Close menu when clicking a link (mobile only)
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
                     hamburger.classList.remove('active');
                     navbar.classList.remove('active');
                     hamburger.setAttribute('aria-expanded', 'false');
                 }
             });
         });
-        
-        // Close menu when clicking outside (mobile only)
-        document.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768 && 
-                navbar.classList.contains('active') && 
-                !navbar.contains(e.target) && 
-                !hamburger.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navbar.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-            }
-        });
-        
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                hamburger.classList.remove('active');
-                navbar.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-            }
-        });
-        </script>
+    </script>
     </header>
 
     <section id="hero-section" class="hero-container">
