@@ -4,7 +4,10 @@
 (function() {
     emailjs.init("YOUR_PUBLIC_KEY"); // Replace with actual EmailJS public key
 })();
-
+// Resume download action
+    window.downloadResume = () => {
+      window.open('shivam_Kumar_webdev.pdf', '_blank', 'noopener,noreferrer');
+    };
 // Mobile Navigation Controller
 class MobileNavigation {
     constructor() {
