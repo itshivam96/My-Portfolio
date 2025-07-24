@@ -6,7 +6,7 @@
 })();
 // Resume download action
     window.downloadResume = () => {
-      window.open('shivam_Kumar_webdev.pdf', '_blank', 'noopener,noreferrer');
+      window.open('Shivam Resume.pdf', '_blank', 'noopener,noreferrer');
     };
 // Mobile Navigation Controller
 class MobileNavigation {
