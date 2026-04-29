@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shivam Kumar — Data Analyst & Developer</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Shivam Kumar | Data Analyst & Developer</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
@@ -31,6 +33,10 @@
     }
 
     html { scroll-behavior: smooth; }
+    html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
@@ -1120,14 +1126,15 @@
       box-shadow: 0 6px 24px var(--glow);
       opacity: 0;
       pointer-events: none;
-      transform: translateY(20px);
-      transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+      transition: opacity 0.4s, box-shadow 0.3s;
+      /* transform: translateY(20px); */
+      /* transition: opacity 0.4s var(--ease), transform 0.4s var(--ease); */
       z-index: 500;
     }
     .btt.visible {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(0);
+      /* transform: translateY(0); */
     }
     .btt:hover { transform: translateY(-4px) !important; box-shadow: 0 10px 30px var(--glow); }
 
@@ -1843,8 +1850,8 @@
       drawer.classList.add('open');
       overlay.classList.add('open');
       burger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
+      // document.body.style.overflow = 'hidden';
+      // document.body.style.position = 'fixed';
       document.body.style.width = '100%';
     }
     function closeMenu() {
